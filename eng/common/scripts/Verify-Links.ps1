@@ -35,7 +35,7 @@ function NormalizeUrl([string]$url){
   if ($script:baseUrl -eq "") {
     # for base url default to containing directory
     Write-Host "$uri"
-    $script:baseUrl = (new-object System.Uri($uri)).ToString();
+    $script:baseUrl = (new-object System.Uri($uri, ".")).ToString();
     Write-host "$script:baseUrl"
   }
 
