@@ -33,6 +33,6 @@ jobs:
         uses: azure/powershell@v1
         with:
           inlineScript: |
-            ./eng/common/scripts/Verify-Links.ps1 -urls ${{env.FOO}} -checkLinkGuidance $true -rootUrl ${{ github.workspace }} -recursive $false
+            ./eng/common/scripts/Verify-Links.ps1 -urls ${{env.FOO}} -checkLinkGuidance $true -rootUrl ${{ github.workspace }} -recursive $false -branchReplacementName ${{ github.sha }}
           azPSVersion: '3.1.0'
           errorActionPreference: SilentlyContinue 
