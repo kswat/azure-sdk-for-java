@@ -31,5 +31,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run link verification steps
-        run: pwsh -command "$GITHUB_WORKSPACE\Verify-Links.ps1" -urls $FOO -checkLinkGuidance $true
+        env:
+          MY_VAR: $true
+        run: pwsh -command "Verify-Links.ps1" -urls $FOO -checkLinkGuidance $MY_VAR
         shell: powershell
