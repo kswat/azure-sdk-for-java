@@ -31,5 +31,5 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run link verification steps
-        run: |
-          powershell ./Verify-Links.ps1 -urls $FOO -checkLinkGuidance: $true
+        run: Verify-Links.ps1 -urls $FOO -checkLinkGuidance: $true
+        shell: powershell
