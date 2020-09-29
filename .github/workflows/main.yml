@@ -32,6 +32,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run link verification steps
         run: |
-          ../../eng/common/scripts/Verify-Links.ps1 -urls $FOO 
+          powershell ../../eng/common/scripts/Verify-Links.ps1 -urls $FOO 
             -branchReplacementName "$GITHUB_SHA"
             -checkLinkGuidance: $true
