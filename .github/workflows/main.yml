@@ -34,8 +34,8 @@ jobs:
         with:
           inlineScript: |
             cd "${{ github.workspace }}"
-            echo "Sima:  $env.FOO "
-            echo $FOO 
+            echo "Sima:  ${{env.FOO}} "
+            echo ${{env.FOO}} 
             echo "./eng/common/scripts/Verify-Links.ps1 -urls $FOO -checkLinkGuidance $true -rootUrl ${{ github.workspace }} -recursive $false"
             ./eng/common/scripts/Verify-Links.ps1 -urls $FOO -checkLinkGuidance $true -rootUrl ${{ github.workspace }} -recursive $false
           azPSVersion: '3.1.0'
