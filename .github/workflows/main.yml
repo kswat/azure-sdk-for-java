@@ -33,4 +33,4 @@ jobs:
       - name: Run link verification steps
         env:
           MY_VAR: $true
-        run: ./eng/common/scripts/Verify-Links.ps1" -urls $FOO -checkLinkGuidance $MY_VAR
+        run: ./eng/common/scripts/Verify-Links.ps1" -urls "$FOO"
