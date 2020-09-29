@@ -32,5 +32,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run link verification steps
         shell: powershell
-        run: |
-          ./eng/common/scripts/Verify-Links.ps1" -urls $FOO
+        run: ./eng/common/scripts/Verify-Links.ps1 -urls $FOO
