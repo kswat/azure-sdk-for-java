@@ -31,11 +31,11 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Display github workspace
-        run: Get-ChildItem "${{ github.workspace }}"
+        run: echo "${{ github.workspace }}\$Foo"
       # Runs a set of commands using the runners shell
       - name: Run link verification steps
         uses: azure/powershell@v1
         with:
           inlineScript: |
-            ./eng/common/scripts/Verify-Links.ps1 -urls "${{ github.workspace }}/$FOO" -checkLinkGuidance $true
+            ./eng/common/scripts/Verify-Links.ps1 -urls "${{ github.workspace }}\$FOO" -checkLinkGuidance $true
           azPSVersion: '3.1.0'
