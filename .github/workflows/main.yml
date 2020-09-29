@@ -22,6 +22,8 @@ jobs:
         run: git config --system core.longpaths true
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v1
+        with:
+          repository: my-org/my-tools
       # Runs a single command using the runners shell
       - name: Display diff files
         id: vars
@@ -34,5 +36,5 @@ jobs:
         uses: azure/powershell@v1
         with:
           inlineScript: |
-            ./eng/common/scripts/Verify-Links.ps1 -urls "$GITHUB_WORKSPACE/$FOO" -checkLinkGuidance $true
+            ./eng/common/scripts/Verify-Links.ps1 -urls "my-org/my-tools/$FOO" -checkLinkGuidance $true
           azPSVersion: '3.1.0'
