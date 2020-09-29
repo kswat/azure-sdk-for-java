@@ -22,8 +22,6 @@ jobs:
         run: git config --system core.longpaths true
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v1
-        with:
-          repository: my-org/my-tools
       # Runs a single command using the runners shell
       - name: Display diff files
         id: vars
@@ -31,10 +29,14 @@ jobs:
             $a = git diff origin/master HEAD --name-only -- "*.md" 
             echo "::set-env name=FOO::$a"
 
+      # Runs a single command using the runners shell
+      - name: Display github workspace
+        run: echo "${{ github.workspace }}"
       # Runs a set of commands using the runners shell
       - name: Run link verification steps
         uses: azure/powershell@v1
         with:
           inlineScript: |
-            ./eng/common/scripts/Verify-Links.ps1 -urls "my-org/my-tools/$FOO" -checkLinkGuidance $true
+            ./eng/common/scripts/Verify-Links.ps1 -urls "${{ github.workspace }}/$FOO" -checkLinkGuidance $true
           azPSVersion: '3.1.0'
+          working-directory: ${{ github.workspace }}
