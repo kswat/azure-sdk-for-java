@@ -34,7 +34,8 @@ jobs:
         with:
           inlineScript: |
             cd "${{ github.workspace }}"
-            echo "./eng/common/scripts/Verify-Links.ps1 -urls ${{FOO}} -checkLinkGuidance $true -rootUrl ${{ github.workspace }} -recursive $false"
-            ./eng/common/scripts/Verify-Links.ps1 -urls ${{FOO}} -checkLinkGuidance $true -rootUrl ${{ github.workspace }} -recursive $false
+            echo $FOO 
+            echo "./eng/common/scripts/Verify-Links.ps1 -urls $FOO -checkLinkGuidance $true -rootUrl ${{ github.workspace }} -recursive $false"
+            ./eng/common/scripts/Verify-Links.ps1 -urls $FOO -checkLinkGuidance $true -rootUrl ${{ github.workspace }} -recursive $false
           azPSVersion: '3.1.0'
           errorActionPreference: SilentlyContinue 
